@@ -4,7 +4,7 @@
     "name": "Cliente 1 - TIE Huellas",
     "enabled": true,
     "province": "Barcelona",
-    "procedure_name": "POLICIA-TOMA DE HUELLAS (EXPEDICION DE TARJETA)",
+    "procedure_name": "POLICÍA-TOMA DE HUELLAS (EXPEDICIÓN DE TARJETA) INICIAL, RENOVACIÓN, DUPLICADO Y LEY 14/2013",
     "no_slots_phrases": [],
     "selectors": {}
   },
@@ -13,7 +13,7 @@
     "name": "Cliente 2 - TIE Huellas",
     "enabled": true,
     "province": "Barcelona",
-    "procedure_name": "POLICIA-TOMA DE HUELLAS (EXPEDICION DE TARJETA)",
+    "procedure_name": "POLICÍA-TOMA DE HUELLAS (EXPEDICIÓN DE TARJETA) INICIAL, RENOVACIÓN, DUPLICADO Y LEY 14/2013",
     "no_slots_phrases": [],
     "selectors": {}
   },
@@ -22,7 +22,7 @@
     "name": "Cliente 3 - TIE Huellas",
     "enabled": false,
     "province": "Barcelona",
-    "procedure_name": "POLICIA-TOMA DE HUELLAS (EXPEDICION DE TARJETA)",
+    "procedure_name": "POLICÍA-TOMA DE HUELLAS (EXPEDICIÓN DE TARJETA) INICIAL, RENOVACIÓN, DUPLICADO Y LEY 14/2013",
     "no_slots_phrases": [],
     "selectors": {}
   }
