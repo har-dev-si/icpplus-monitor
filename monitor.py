@@ -33,6 +33,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, WebDriverException
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
 
 
 BASE_URL = "https://sede.administracionespublicas.gob.es/icpplus/index.html"
@@ -283,6 +285,40 @@ def main():
                 f"and submit FAST - slots disappear in seconds!"
             )
             send_email(subject, body)
+          TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
+
+
+def send_telegram(message: str) -> None:
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        print("Telegram not configured - skipping notification.")
+        return
+
+    try:
+        api_url = (
+            f"https://api.telegram.org/bot"
+            f"{TELEGRAM_BOT_TOKEN}/sendMessage"
+        )
+
+        payload = urlencode({
+            "chat_id": TELEGRAM_CHAT_ID,
+            "text": message
+        }).encode("utf-8")
+
+        request = Request(
+            api_url,
+            data=payload,
+            headers={
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            method="POST"
+        )
+
+        with urlopen(request, timeout=20) as response:
+            print(f"Telegram response: HTTP {response.status}")
+
+    except Exception as error:
+        print(f"Telegram notification error: {error}")
 
         # Small pause between profiles to avoid hammering the site back-to-back
         human_delay(1.5, 3)
